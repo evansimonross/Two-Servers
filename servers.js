@@ -16,14 +16,17 @@ function meanRequest(request, response) {
     response.end(phrases[Math.floor(Math.random()*phrases.length)]);
 }
 
+const NICEPORT = 7000;
+const MEANPORT = 7500;
+
 var niceServer = http.createServer(niceRequest);
 
-niceServer.listen(7000, function(){
-    console.log("Server listening on http://localhost:%s", 7000);
+niceServer.listen(NICEPORT, function(){
+    console.log("Server listening on http://localhost:%s", NICEPORT);
 });
 
 var meanServer = http.createServer(meanRequest);
 
-meanServer.listen(7500, function(){
-    console.log("Server listening on http://localhost:%s", 7500);
+meanServer.listen(MEANPORT, function(){
+    console.log("Server listening on http://localhost:%s", MEANPORT);
 });
